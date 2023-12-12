@@ -1,9 +1,215 @@
+/* || RESET */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.7;
+}
+
+h1, 
+h2,
+h3 {
+    line-height: 1;
+}
+
+/* Make image easier to work with */
+img, 
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* || VARIABLES  */
+
+:root {
+    
+    /* COLORS */
+
+    --dark-cyan:hsl(158, 36%, 37%);
+    --darker-cyan:hsl(158, 36%, 20%);
+    --cream: hsl(30, 38%, 92%);
+    --very-dark-blue: hsl(212, 21%, 14%);
+    --dark-grayish-blue: hsl(228, 12%, 48%);
+    --white: hsl(0, 0%, 100%);
+
+    /* FONT */
+
+    --fs: 0.875rem;
+    --fw-regular: 500;
+    --fw-bold: 700;
+
+    /* BORDERS */
+
+    --border-radius: 0.5rem;
+}
+
+/* || UTILITY CLASS  */
+
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+} 
+
+.wrap {
+    white-space: pre;
+}
+
+/* || GENEARL STYLE  */
+
+html {
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--fs);
+    color: var(--dark-grayish-blue);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem 1rem;
+    background-color: var(--cream);
+}
+
+/* || BLOCKS */
+
+.c-product-card {
+    --card-spacing: 1rem;
+
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    max-width: 48rem;
+}
+
+.c-product-card__text-half {
+    padding: 1.9rem;
+    display: grid;
+    row-gap: var(--card-spacing);
+}
+
+.c-product-card__prices {
+    display: flex;
+    align-items: center;
+}
 
 .attribution { 
     font-size: 11px; 
-    text-align: center; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }
 
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+
+/* || ELEMENTS */
+
+.ribbon-text {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.c-product-card__title {
+    color: var(--very-dark-blue);
+    font-family: "Fraunces", sans-serif;
+    font-weight: var(--fw-bold);
+    font-size:2.25rem;
+    margin-top: 0.8rem;
+}
+
+.c-product-card__new-price{
+    font-size: 2rem;
+    color: var(--dark-cyan);
+    font-family: "Fraunces", sans-serif;
+    font-weight: var(--fw-bold);
+    font-size: 2rem; 
+    margin-right: 1.5rem;
+}
+
+.c-product-card__btn {
+    background-color: var(--dark-cyan);
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+    color: white;
+    font-weight: var(--fw-bold);
+    border-radius: var(--border-radius);
+    border: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+
+.c-product-card__btn::before {
+    content: "";
+    width: 15px;
+    height: 16px;
+    background-image: url("../images/icon-cart.svg");
+}
+
+button:is(:hover, :focus) {
+    background-color: var(--darker-cyan);
+}
+
+/* || MEDIA QUERIES */
+
+/* Medium Size */
+@media only screen and (min-width: 48rem) {
+    .c-product-card {
+        display: flex;
+    }
+
+    .c-product-card__img-half {
+        flex: 1 1 50%;
+    }
+
+    .c-product-card__text-half {
+        flex: 1 1 50%;
+        padding: 0 3.5rem 2rem ;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+/* large */
+@media only screen and (min-width: 64rem) {
+    .c-product-card {
+        display: flex;
+    }
+
+    .c-product-card__img-half {
+        flex: 1 1 50%;
+    }
+
+    .c-product-card__text-half {
+        flex: 1 1 50%;
+        padding: 0 3.5rem 2rem ;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
 }

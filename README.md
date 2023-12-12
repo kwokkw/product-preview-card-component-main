@@ -49,12 +49,80 @@ Users should be able to:
 
 ### What I learned
 
+How is the following code helping with the border-radius?
+
+The background/content of the children overlap the parent's curved corners. So the overflow hidden is needed to crop out the bits that overflow
+
+```css
+.c-product-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+```
+
+The “visually-hidden” class is utilizing various declarations to shrink an element into a 1px square, hiding any overflow, and absolutely positioning the element to remove any trace of it from the normal document flow.
+
+```css
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+
+  /* Shrink an element into a 1px square */
+  width: 1px;
+  height: 1px;
+
+  /* Hiding any overflow */
+  overflow: hidden;
+
+  /* absolutely positioning the element to remove any trace of it from the normal document flow. */
+  position: absolute;
+
+  white-space: nowrap; 
+}
+
+```
+
+  Letter spacing prefers `px` or `em`
+
 ### Continued development
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Scott O'Hara's Inclusively Hidden article](https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html#hiding-content-visually) - This explains how to visually hide an element. 
+
+Why are we hiding content?
+  1. Completely Hidden Content
+     - CSS `display: none`
+     - CSS `visibility: hidden`
+     - HTML's `hidden Attribute` 
+
+  2. Only Visually Hidden Content
+    ```css
+
+    .visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+  }
+
+    ```
+
+  3. Visual-Only Content, or hiding content to assistive technologies
+
+  ```css
+  
+  /* baseline rules for an off-screen class */
+  .off-screen {
+  left: -100vw;
+  position: absolute;
+  }
+  
+  ```
 
 ## Author
 - Frontend Mentor - [@kwokkw](https://www.frontendmentor.io/profile/kwokkw)
