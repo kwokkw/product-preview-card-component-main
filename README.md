@@ -130,3 +130,4 @@ Why are we hiding content?
 ## Acknowledgments
 
 [How to plan your HTML (1): Product Preview Card](https://fedmentor.dev/posts/html-plan-product-preview/#series-intro) written by Grace Snow
+[Taking on a Frontend Mentor challenge | Responsive Product Preview Card Component](https://www.youtube.com/watch?v=B2WL6KkqhLQ&t=3079s) by Kevin Powell
